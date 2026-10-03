@@ -1,0 +1,311 @@
+/* Site vitrine Spyke — même identité que la plaquette et que l'outil de
+ * prospection : papier chaud, encre presque noire, un seul jaune.
+ *
+ * Deux règles tiennent tout le reste :
+ *   1. Le jaune ne sert jamais de texte sur fond clair — il y plafonne à 1,6:1,
+ *      illisible. Il remplit, il souligne. Sur fond noir il monte à 11,5:1 et
+ *      devient l'accent. Pour écrire en jaune sur clair, --yellow-ink (4,7:1).
+ *   2. Chaque gris a été mesuré sur les deux fonds réels et tient 4,5:1.
+ */
+
+:root{
+  --paper:#FDFAF5; --card:#FFFFFF; --sink:#F6F2EA;
+  --line:#EAE5DB; --line-2:#F3EFE7;
+  --ink:#121315; --body:#3B3A35; --muted:#6C6A64; --faint:#767369;
+  --yellow:#F9C50D; --yellow-d:#E3B000; --yellow-tint:#FDF3D0; --yellow-ink:#7A5C00;
+  --won:#0F7250; --won-tint:#E7F5EF; --won-line:#BFE3D3;
+  --on-ink:#FFFFFF; --on-ink-2:#A8A49A; --on-ink-3:#8A867E; --on-ink-line:#2A2A2C;
+  --sans:"Inter",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --disp:"Space Grotesk","Inter",system-ui,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --r:16px; --r-s:11px; --r-l:22px;
+  --lift:0 1px 2px rgba(18,19,21,.04), 0 1px 1px rgba(18,19,21,.03);
+  --lift-2:0 4px 16px rgba(18,19,21,.07), 0 1px 2px rgba(18,19,21,.04);
+  --max:1120px;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{
+  background:var(--paper);color:var(--body);font-family:var(--sans);
+  font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;
+}
+a{color:inherit}
+button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
+img{max-width:100%}
+:focus-visible{outline:2.5px solid var(--yellow-d);outline-offset:3px;border-radius:6px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto}}
+
+.wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+section{padding:84px 0}
+.sink{background:var(--sink);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+
+/* Le filet jaune de la plaquette, posé sous un sur-titre. */
+.kicker{
+  display:block;font-size:10.5px;font-weight:700;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:14px;
+}
+.kicker::after{
+  content:"";display:block;width:34px;height:3px;border-radius:2px;
+  background:var(--yellow);margin-top:10px;
+}
+h2{
+  font-family:var(--disp);font-size:clamp(26px,3.4vw,38px);font-weight:700;
+  color:var(--ink);letter-spacing:-.03em;line-height:1.15;max-width:20ch;
+}
+h3{font-family:var(--disp);font-size:19px;font-weight:700;color:var(--ink);letter-spacing:-.02em}
+.lead{font-size:17px;color:var(--body);line-height:1.65;max-width:62ch;margin-top:18px}
+
+/* ----------------------------------------------------------------- bandeau */
+
+header{
+  position:sticky;top:0;z-index:50;background:rgba(253,250,245,.92);
+  backdrop-filter:saturate(1.6) blur(10px);border-bottom:1px solid var(--line);
+}
+header .wrap{display:flex;align-items:center;gap:26px;height:68px}
+.logo{display:flex;align-items:center;gap:8px;text-decoration:none;flex:0 0 auto}
+.logo b{font-family:var(--disp);font-size:20px;font-weight:700;color:var(--ink);letter-spacing:-.02em}
+.logo i{width:7px;height:7px;border-radius:50%;background:var(--yellow);display:block}
+.logo span{font-size:12px;color:var(--muted);letter-spacing:.01em}
+nav{display:flex;gap:24px;margin-left:auto}
+nav a{font-size:14px;font-weight:500;color:var(--body);text-decoration:none;transition:color .15s}
+nav a:hover{color:var(--ink)}
+
+.btn{
+  display:inline-block;padding:13px 22px;border-radius:var(--r-s);background:var(--ink);
+  color:var(--on-ink);font-size:14.5px;font-weight:600;text-decoration:none;
+  transition:background .15s,transform .1s;white-space:nowrap;
+}
+.btn:hover{background:#000}
+.btn:active{transform:scale(.985)}
+.btn.sm{padding:10px 16px;font-size:13.5px}
+.btn.ghost{background:var(--card);color:var(--ink);border:1px solid var(--line)}
+.btn.ghost:hover{background:var(--sink)}
+.btn.or{background:var(--yellow);color:var(--ink)}
+.btn.or:hover{background:var(--yellow-d)}
+
+/* -------------------------------------------------------------------- hero */
+
+.hero{padding:84px 0 70px}
+.hero .sur{
+  display:inline-flex;align-items:center;gap:9px;padding:7px 14px;border-radius:999px;
+  background:var(--card);border:1px solid var(--line);box-shadow:var(--lift);
+  font-size:12.5px;font-weight:600;color:var(--body);margin-bottom:26px;
+}
+.hero .sur i{width:6px;height:6px;border-radius:50%;background:var(--won);display:block}
+.hero h1{
+  font-family:var(--disp);font-size:clamp(30px,5.4vw,58px);font-weight:700;
+  color:var(--ink);letter-spacing:-.04em;line-height:1.08;max-width:19ch;
+  text-wrap:balance;
+}
+/* Le jaune souligne, il n'écrit pas : en texte sur fond clair il plafonne à
+   1,6:1. Le trait est un fond dégradé et non un ::after, pour qu'il suive la
+   phrase quand elle passe à la ligne — sinon il s'arrête au premier retour. */
+.hero h1 em{
+  font-style:normal;
+  background-image:linear-gradient(var(--yellow),var(--yellow));
+  background-size:100% .30em;background-position:0 88%;background-repeat:no-repeat;
+  -webkit-box-decoration-break:clone;box-decoration-break:clone;
+  padding:0 .04em;
+}
+.hero p{font-size:18px;color:var(--body);line-height:1.65;max-width:56ch;margin-top:24px}
+.hero .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px;align-items:center}
+.hero .cta small{font-size:13px;color:var(--muted)}
+
+.chiffres{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin-top:62px;
+  background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;
+}
+.chiffres div{background:var(--card);padding:22px 20px}
+.chiffres b{
+  display:block;font-family:var(--mono);font-size:26px;font-weight:600;color:var(--ink);
+  letter-spacing:-.02em;line-height:1.1;font-variant-numeric:tabular-nums;
+}
+.chiffres span{
+  display:block;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--faint);margin-top:8px;
+}
+
+/* ------------------------------------------------------------------ équipe */
+
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.duo .rail{display:grid;gap:16px}
+.pt{display:flex;gap:14px;align-items:flex-start}
+.pt .n{
+  flex:0 0 30px;height:30px;border-radius:9px;background:var(--ink);color:var(--yellow);
+  font-family:var(--mono);font-size:12.5px;font-weight:600;
+  display:flex;align-items:center;justify-content:center;
+}
+.pt b{display:block;font-size:15.5px;font-weight:600;color:var(--ink);margin-bottom:3px}
+.pt p{font-size:14.5px;color:var(--muted);line-height:1.6}
+
+/* ----------------------------------------------------------------- constat */
+
+.cartes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
+.carte{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+  padding:26px 24px;box-shadow:var(--lift);display:flex;flex-direction:column;
+}
+.carte .num{
+  font-family:var(--mono);font-size:12px;font-weight:600;color:var(--yellow-ink);
+  background:var(--yellow-tint);border-radius:6px;padding:3px 8px;align-self:flex-start;
+  margin-bottom:16px;
+}
+.carte h3{margin-bottom:10px}
+.carte p{font-size:14.5px;color:var(--muted);line-height:1.65}
+
+/* ------------------------------------------------------------------ offres */
+
+.offres{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
+.offre{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+  box-shadow:var(--lift);display:flex;flex-direction:column;overflow:hidden;
+}
+.offre .h{padding:26px 24px 0}
+.offre .tag{
+  font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--muted);display:block;margin-bottom:12px;
+}
+.offre h3{font-size:20px;line-height:1.25;margin-bottom:14px}
+.offre .desc{font-size:14.5px;color:var(--muted);line-height:1.65;padding:0 24px}
+.offre .ex{
+  margin:20px 24px 0;padding:14px 16px;background:var(--sink);
+  border-left:3px solid var(--yellow);border-radius:0 var(--r-s) var(--r-s) 0;
+  font-size:13.5px;color:var(--body);line-height:1.55;
+}
+.offre .ex b{color:var(--ink);font-weight:600}
+.offre .pour{padding:18px 24px 0;font-size:13.5px;color:var(--muted);line-height:1.6}
+.offre .pour b{
+  display:block;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--faint);margin-bottom:6px;
+}
+.offre .prix{
+  margin-top:auto;padding:22px 24px;border-top:1px solid var(--line-2);
+  display:flex;align-items:baseline;gap:9px;
+}
+.offre .prix b{
+  font-family:var(--mono);font-size:20px;font-weight:600;color:var(--ink);
+  font-variant-numeric:tabular-nums;letter-spacing:-.02em;
+}
+.offre .prix span{font-size:12px;color:var(--faint)}
+
+/* ---------------------------------------------------------------- déroulé */
+
+.etapes{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:44px}
+.etape{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:24px 22px;box-shadow:var(--lift)}
+.etape .n{
+  font-family:var(--mono);font-size:11.5px;font-weight:600;color:var(--ink);
+  background:var(--yellow);border-radius:999px;padding:3px 10px;
+  display:inline-block;margin-bottom:16px;
+}
+.etape h3{font-size:17px;margin-bottom:9px}
+.etape p{font-size:14px;color:var(--muted);line-height:1.6}
+
+/* ------------------------------------------------------------------ audit */
+
+.audit{
+  background:var(--ink);color:var(--on-ink);border-radius:var(--r-l);
+  padding:52px 48px;position:relative;overflow:hidden;
+}
+.audit::before{
+  content:"";position:absolute;top:-40%;right:-10%;width:520px;height:520px;border-radius:50%;
+  background:radial-gradient(circle,rgba(249,197,13,.16),rgba(249,197,13,0) 68%);pointer-events:none;
+}
+.audit .kicker{color:var(--on-ink-3)}
+.audit h2{color:var(--on-ink);max-width:16ch}
+.audit > .in{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
+.audit p{font-size:16px;color:var(--on-ink-2);line-height:1.7;margin-top:18px;max-width:46ch}
+.audit ul{list-style:none;display:grid;gap:13px;margin-top:26px}
+.audit li{display:flex;gap:12px;font-size:15px;color:var(--on-ink);line-height:1.55}
+.audit li::before{content:"";flex:0 0 7px;height:7px;border-radius:50%;background:var(--yellow);margin-top:9px}
+.audit .box{
+  background:rgba(255,255,255,.05);border:1px solid var(--on-ink-line);
+  border-radius:var(--r);padding:30px 28px;
+}
+.audit .box .p{
+  font-family:var(--mono);font-size:44px;font-weight:600;color:var(--on-ink);
+  letter-spacing:-.03em;line-height:1;
+}
+.audit .box .s{font-size:13.5px;color:var(--on-ink-2);margin-top:10px}
+.audit .box .btn{margin-top:24px;width:100%;text-align:center}
+.audit .box .free{
+  font-size:12.5px;color:var(--on-ink-3);margin-top:14px;text-align:center;line-height:1.5;
+}
+
+/* ------------------------------------------------------------- abonnement */
+
+.abos{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
+.abo{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:26px 24px;box-shadow:var(--lift)}
+.abo .t{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.abo .p{
+  font-family:var(--mono);font-size:27px;font-weight:600;color:var(--ink);
+  margin:12px 0 12px;letter-spacing:-.02em;font-variant-numeric:tabular-nums;
+}
+.abo .p em{font-style:normal;font-size:13px;color:var(--faint);font-family:var(--sans)}
+.abo p{font-size:14px;color:var(--muted);line-height:1.6}
+
+/* -------------------------------------------------------------- réservation */
+
+.rdv{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.rdv .quoi{display:grid;gap:13px;margin-top:26px;list-style:none}
+.rdv .quoi li{display:flex;gap:12px;font-size:15px;color:var(--body);line-height:1.55}
+.rdv .quoi li::before{
+  content:"";flex:0 0 18px;height:18px;border-radius:50%;background:var(--won-tint);
+  border:1px solid var(--won-line);margin-top:3px;
+}
+.agenda{
+  background:var(--card);border:1px solid var(--line);border-radius:var(--r);
+  box-shadow:var(--lift-2);overflow:hidden;min-height:380px;
+}
+.agenda .h{
+  padding:18px 22px;border-bottom:1px solid var(--line-2);
+  display:flex;align-items:center;gap:10px;
+}
+.agenda .h i{width:8px;height:8px;border-radius:50%;background:var(--won);display:block}
+.agenda .h b{font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+.agenda .h span{margin-left:auto;font-family:var(--mono);font-size:12.5px;color:var(--faint)}
+/* L'outil de prise de rendez-vous vient se loger ici. Tant qu'il n'est pas
+   branché, on ne laisse pas un trou : on donne le numéro et l'adresse. */
+#reservation-embed{min-height:300px}
+.agenda .secours{padding:32px 26px;text-align:center}
+.agenda .secours p{font-size:14.5px;color:var(--muted);line-height:1.65;max-width:34ch;margin:0 auto 20px}
+.agenda .secours .ligne{
+  display:block;font-family:var(--mono);font-size:21px;font-weight:600;color:var(--ink);
+  text-decoration:none;letter-spacing:-.01em;margin-bottom:6px;
+}
+.agenda .secours .mail{display:block;font-size:14.5px;color:var(--body);text-decoration:underline;margin-top:14px}
+
+/* ------------------------------------------------------------------- pied */
+
+footer{background:var(--ink);color:var(--on-ink-2);padding:56px 0 34px}
+footer .top{display:flex;gap:40px;flex-wrap:wrap;align-items:flex-start}
+footer .logo b{color:var(--on-ink)}
+footer .logo span{color:var(--on-ink-3)}
+footer .co{margin-left:auto;display:grid;gap:7px;font-size:14.5px}
+footer .co a{color:var(--on-ink);text-decoration:none}
+footer .co a:hover{color:var(--yellow)}
+footer .bas{
+  margin-top:40px;padding-top:22px;border-top:1px solid var(--on-ink-line);
+  display:flex;gap:18px;flex-wrap:wrap;font-size:12.5px;color:var(--on-ink-3);
+}
+footer .bas a{color:var(--on-ink-3)}
+footer .bas span{margin-left:auto}
+
+/* --------------------------------------------------------------- écrans */
+
+@media (max-width:960px){
+  section{padding:64px 0}
+  .duo,.rdv,.audit > .in{grid-template-columns:1fr;gap:34px}
+  .cartes,.offres,.abos{grid-template-columns:1fr}
+  .etapes{grid-template-columns:1fr 1fr}
+  .chiffres{grid-template-columns:1fr 1fr}
+  .audit{padding:38px 28px}
+  nav{display:none}
+}
+@media (max-width:560px){
+  .etapes{grid-template-columns:1fr}
+  .hero{padding:56px 0 48px}
+  .wrap{padding:0 18px}
+  header .wrap{gap:12px}
+  .logo span{display:none}
+}
