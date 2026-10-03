@@ -183,11 +183,9 @@ nav a:hover{color:var(--ink)}
   margin-top:auto;padding:22px 24px;border-top:1px solid var(--line-2);
   display:flex;align-items:baseline;gap:9px;
 }
-.offre .prix b{
-  font-family:var(--mono);font-size:20px;font-weight:600;color:var(--ink);
-  font-variant-numeric:tabular-nums;letter-spacing:-.02em;
-}
-.offre .prix span{font-size:12px;color:var(--faint)}
+.offre .prix{flex-direction:column;align-items:flex-start;gap:4px}
+.offre .prix b{font-size:15px;font-weight:600;color:var(--ink)}
+.offre .prix span{font-size:12.5px;color:var(--faint);line-height:1.5}
 
 /* ---------------------------------------------------------------- déroulé */
 
@@ -227,26 +225,41 @@ nav a:hover{color:var(--ink)}
   letter-spacing:-.03em;line-height:1;
 }
 .audit .box .s{font-size:13.5px;color:var(--on-ink-2);margin-top:10px}
-.audit .box .btn{margin-top:24px;width:100%;text-align:center}
+.audit .box .btn{margin-top:22px;width:100%;text-align:center}
 .audit .box .free{
-  font-size:12.5px;color:var(--on-ink-3);margin-top:14px;text-align:center;line-height:1.5;
+  font-size:13px;color:var(--on-ink-2);margin-top:22px;line-height:1.6;
+  padding-top:20px;border-top:1px solid var(--on-ink-line);
 }
+.audit .box .free b{display:block;color:var(--on-ink);font-weight:600;margin-bottom:5px}
 
 /* ------------------------------------------------------------- abonnement */
 
 .abos{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
 .abo{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:26px 24px;box-shadow:var(--lift)}
-.abo .t{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-.abo .p{
-  font-family:var(--mono);font-size:27px;font-weight:600;color:var(--ink);
-  margin:12px 0 12px;letter-spacing:-.02em;font-variant-numeric:tabular-nums;
+.abo .t{
+  font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--yellow-ink);background:var(--yellow-tint);border-radius:6px;
+  padding:3px 8px;display:inline-block;
 }
-.abo .p em{font-style:normal;font-size:13px;color:var(--faint);font-family:var(--sans)}
+.abo h3{font-size:17px;line-height:1.3;margin:14px 0 9px}
 .abo p{font-size:14px;color:var(--muted);line-height:1.6}
+.apres{
+  margin-top:22px;font-size:14.5px;color:var(--muted);line-height:1.65;max-width:58ch;
+}
 
 /* -------------------------------------------------------------- réservation */
 
 .rdv{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+/* La confusion à éviter : l'appel de quinze minutes est gratuit, l'audit est
+   facturé. Un prospect qui croit que le premier contact coûte 500 € ne
+   décroche pas. Le rappel est donc écrit, pas sous-entendu. */
+.pasaudit{
+  margin-top:22px;padding:16px 18px;background:var(--won-tint);
+  border:1px solid var(--won-line);border-radius:var(--r-s);
+  font-size:14.5px;color:var(--body);line-height:1.6;max-width:56ch;
+}
+.pasaudit b{color:var(--won);font-weight:600}
+
 .rdv .quoi{display:grid;gap:13px;margin-top:26px;list-style:none}
 .rdv .quoi li{display:flex;gap:12px;font-size:15px;color:var(--body);line-height:1.55}
 .rdv .quoi li::before{
@@ -264,6 +277,7 @@ nav a:hover{color:var(--ink)}
 .agenda .h i{width:8px;height:8px;border-radius:50%;background:var(--won);display:block}
 .agenda .h b{font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
 .agenda .h span{margin-left:auto;font-family:var(--mono);font-size:12.5px;color:var(--faint)}
+.agenda .h .gratuit{color:var(--won);font-weight:600}
 /* L'outil de prise de rendez-vous vient se loger ici. Tant qu'il n'est pas
    branché, on ne laisse pas un trou : on donne le numéro et l'adresse. */
 #reservation-embed{min-height:300px}
