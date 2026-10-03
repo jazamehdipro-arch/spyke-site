@@ -5,9 +5,9 @@ Il s'ouvre en double-cliquant sur `index.html`.
 
 ## Avant la mise en ligne
 
-Le contenu est complet. Le téléphone (06 66 88 42 37) et l'adresse e-mail
-(contact@spykeapp.fr) sont les vrais, à changer seulement si une ligne ou une
-boîte est créée sur le nouveau domaine.
+Le contenu est complet. Le téléphone (06 66 88 42 37) est le vrai. L'adresse
+e-mail de contact est contact@spykeconseil.fr : la boîte doit exister sur le
+domaine, sinon les messages des prospects partiront dans le vide.
 
 Les mentions légales et la politique de confidentialité reprennent les
 informations publiées sur spykeapp.fr (JAZA Mehdi, auto-entrepreneur,
