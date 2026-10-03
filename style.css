@@ -268,7 +268,7 @@ nav a:hover{color:var(--ink)}
 }
 .agenda{
   background:var(--card);border:1px solid var(--line);border-radius:var(--r);
-  box-shadow:var(--lift-2);overflow:hidden;min-height:380px;
+  box-shadow:var(--lift-2);overflow:hidden;min-height:380px;margin-top:48px;
 }
 .agenda .h{
   padding:18px 22px;border-bottom:1px solid var(--line-2);
@@ -281,11 +281,16 @@ nav a:hover{color:var(--ink)}
 /* L'outil de prise de rendez-vous vient se loger ici. Tant qu'il n'est pas
    branché, on ne laisse pas un trou : on donne le numéro et l'adresse. */
 #reservation-embed{min-height:300px}
-/* Le cadre du calendrier. Il ne prend de la hauteur qu'une fois prêt, pour ne
-   pas laisser un grand vide pendant le chargement. */
-#cal-15min{width:100%}
-#cal-15min.pret{min-height:620px}
-#cal-15min iframe{display:block;width:100%;border:0}
+/* Le cadre du calendrier. Il reste à zéro tant que Cal.com n'a pas répondu,
+   pour ne pas laisser un grand vide pendant le chargement. Une fois prêt, sa
+   hauteur est bornée : Cal.com étire sinon son cadre à la hauteur de toute la
+   liste des créneaux de la journée, ce qui rend la page interminable. Le
+   calendrier défile alors à l'intérieur de son propre cadre. */
+#cal-15min{--haut:640px;width:100%;height:0;overflow:hidden}
+#cal-15min.pret{height:var(--haut)}
+#cal-15min cal-inline,
+#cal-15min > div{height:100%!important;max-height:100%!important;overflow:hidden}
+#cal-15min iframe{display:block;width:100%;height:100%!important;border:0}
 .agenda .autrement{
   padding:14px 22px;border-top:1px solid var(--line-2);
   font-size:14px;color:var(--muted);text-align:center;
@@ -321,6 +326,8 @@ footer .bas span{margin-left:auto}
 @media (max-width:960px){
   section{padding:64px 0}
   .duo,.rdv,.audit > .in{grid-template-columns:1fr;gap:34px}
+  .agenda{margin-top:34px}
+  #cal-15min{--haut:580px}
   .cartes,.offres,.abos{grid-template-columns:1fr}
   .etapes{grid-template-columns:1fr 1fr}
   .chiffres{grid-template-columns:1fr 1fr}
@@ -329,6 +336,7 @@ footer .bas span{margin-left:auto}
 }
 @media (max-width:560px){
   .etapes{grid-template-columns:1fr}
+  #cal-15min{--haut:520px}
   .hero{padding:56px 0 48px}
   .wrap{padding:0 18px}
   header .wrap{gap:12px}

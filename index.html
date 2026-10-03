@@ -301,22 +301,27 @@
 
   <!-- =========================================================== réserver -->
   <section id="reserver">
-    <div class="wrap rdv">
-      <div>
-        <span class="kicker">Premier contact</span>
-        <h2>15 minutes au téléphone, gratuites.</h2>
-        <p class="lead">
-          C'est le point de départ, et il ne coûte rien. Un appel de quinze
-          minutes : on vous explique ce que nous faisons, vous nous décrivez
-          votre fonctionnement, et on vous dit honnêtement s'il y a quelque chose
-          à automatiser chez vous, ou non.
-        </p>
+    <div class="wrap">
+      <!-- Le texte tient sur deux colonnes, le calendrier passe en dessous sur
+           toute la largeur. Dans une colonne étroite, Cal.com empile la grille
+           du mois et la liste des créneaux, ce qui allonge la page sans fin. -->
+      <div class="rdv">
+        <div>
+          <span class="kicker">Premier contact</span>
+          <h2>15 minutes au téléphone, gratuites.</h2>
+          <p class="lead">
+            C'est le point de départ, et il ne coûte rien. Un appel de quinze
+            minutes : on vous explique ce que nous faisons, vous nous décrivez
+            votre fonctionnement, et on vous dit honnêtement s'il y a quelque chose
+            à automatiser chez vous, ou non.
+          </p>
 
-        <p class="pasaudit">
-          <b>Ce n'est pas l'audit.</b> L'audit, c'est l'étape d'après : une
-          demi-journée chez vous et un rapport chiffré, facturé 500 €. Vous ne le
-          lancez que si cet échange a montré que ça en valait la peine.
-        </p>
+          <p class="pasaudit">
+            <b>Ce n'est pas l'audit.</b> L'audit, c'est l'étape d'après : une
+            demi-journée chez vous et un rapport chiffré, facturé 500 €. Vous ne le
+            lancez que si cet échange a montré que ça en valait la peine.
+          </p>
+        </div>
 
         <ul class="quoi">
           <li>Vous décrivez les tâches qui vous prennent le plus de temps.</li>
@@ -427,17 +432,26 @@ Cal.ns.quinze("ui", {
   }
 });
 
-/* Le calendrier a répondu : on retire le bloc de secours et on laisse la
-   place au cadre. Tant que cet évènement n'arrive pas, le visiteur garde le
+/* Le calendrier a répondu : on retire le bloc de secours et on donne sa
+   hauteur au cadre. Tant que cet évènement n'arrive pas, le visiteur garde le
    numéro sous les yeux. */
-Cal.ns.quinze("on", {
-  action: "linkReady",
-  callback: function () {
-    var sec = document.getElementById('reservation-secours');
-    if (sec) { sec.hidden = true; }
-    document.getElementById('cal-15min').classList.add('pret');
+function calendrierPret() {
+  var sec = document.getElementById('reservation-secours');
+  if (sec) { sec.hidden = true; }
+  document.getElementById('cal-15min').classList.add('pret');
+}
+
+Cal.ns.quinze("on", { action: "linkReady", callback: calendrierPret });
+
+/* Filet de sécurité : si Cal.com a bien posé son cadre mais que l'évènement
+   de confirmation ne nous parvient pas, on affiche quand même le calendrier
+   au bout de six secondes plutôt que de laisser un cadre invisible. */
+setTimeout(function () {
+  var zone = document.getElementById('cal-15min');
+  if (zone && !zone.classList.contains('pret') && zone.querySelector('iframe')) {
+    calendrierPret();
   }
-});
+}, 6000);
 </script>
 </body>
 </html>
