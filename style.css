@@ -1,8 +1,8 @@
-/* Site vitrine Spyke — même identité que la plaquette et que l'outil de
+/* Site vitrine Spyke : même identité que la plaquette et que l'outil de
  * prospection : papier chaud, encre presque noire, un seul jaune.
  *
  * Deux règles tiennent tout le reste :
- *   1. Le jaune ne sert jamais de texte sur fond clair — il y plafonne à 1,6:1,
+ *   1. Le jaune ne sert jamais de texte sur fond clair : il y plafonne à 1,6:1,
  *      illisible. Il remplit, il souligne. Sur fond noir il monte à 11,5:1 et
  *      devient l'accent. Pour écrire en jaune sur clair, --yellow-ink (4,7:1).
  *   2. Chaque gris a été mesuré sur les deux fonds réels et tient 4,5:1.
@@ -100,7 +100,7 @@ nav a:hover{color:var(--ink)}
 }
 /* Le jaune souligne, il n'écrit pas : en texte sur fond clair il plafonne à
    1,6:1. Le trait est un fond dégradé et non un ::after, pour qu'il suive la
-   phrase quand elle passe à la ligne — sinon il s'arrête au premier retour. */
+   phrase quand elle passe à la ligne : sinon il s'arrête au premier retour. */
 .hero h1 em{
   font-style:normal;
   background-image:linear-gradient(var(--yellow),var(--yellow));

@@ -1,22 +1,22 @@
-# Site vitrine Spyke — spykeconseil.fr
+# Site vitrine Spyke : spykeconseil.fr
 
 Site statique : trois fichiers HTML, une feuille de style, rien à compiler.
 Il s'ouvre en double-cliquant sur `index.html`.
 
-## Avant la mise en ligne — à remplir
+## Avant la mise en ligne : à remplir
 
 1. **Le téléphone et l'adresse e-mail**, dans `index.html` (section « Réserver »
    et pied de page) : chercher `00 00 00 00 00` et `contact@spykeconseil.fr`.
 2. **Les mentions légales**, dans `mentions-legales.html` : raison sociale,
    SIRET, adresse, directeur de la publication. Les champs à compléter sont
-   surlignés en jaune sur la page — ils sont obligatoires pour un site
+   surlignés en jaune sur la page. Ils sont obligatoires pour un site
    professionnel français.
 3. **La prise de rendez-vous** : voir ci-dessous.
 
 ## La prise de rendez-vous
 
 Le bloc « Choisir un créneau » attend un outil d'agenda. Tant qu'il n'est pas
-branché, il affiche le téléphone et l'adresse e-mail — un visiteur n'est jamais
+branché, il affiche le téléphone et l'adresse e-mail. Un visiteur n'est jamais
 bloqué.
 
 Pour le brancher, coller le code fourni par l'outil (Cal.com, Calendly…) à
