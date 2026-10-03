@@ -1,4 +1,4 @@
-# Site vitrine Spyke : spykeconseil.com
+# Site vitrine Spyke : spykeconseil.fr
 
 Site statique : trois fichiers HTML, une feuille de style, rien à compiler.
 Il s'ouvre en double-cliquant sur `index.html`.
@@ -29,12 +29,12 @@ bloc `<div class="secours">`.
 
 ## Mise en ligne
 
-1. Acheter `spykeconseil.com` chez un bureau d'enregistrement (OVH, Gandi,
+1. Acheter `spykeconseil.fr` chez un bureau d'enregistrement (OVH, Gandi,
    Infomaniak). Aucune option supplémentaire n'est nécessaire : ni hébergement,
    ni « pack site ».
 2. Créer un projet sur Vercel à partir de ce dépôt. Aucun réglage : Vercel
    reconnaît un site statique.
-3. Dans Vercel, ajouter le domaine `spykeconseil.com`, puis recopier les deux
+3. Dans Vercel, ajouter le domaine `spykeconseil.fr`, puis recopier les deux
    enregistrements DNS indiqués chez le bureau d'enregistrement. Le certificat
    HTTPS se pose tout seul.
 
