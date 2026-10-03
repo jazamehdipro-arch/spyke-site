@@ -281,6 +281,17 @@ nav a:hover{color:var(--ink)}
 /* L'outil de prise de rendez-vous vient se loger ici. Tant qu'il n'est pas
    branché, on ne laisse pas un trou : on donne le numéro et l'adresse. */
 #reservation-embed{min-height:300px}
+/* Le cadre du calendrier. Il ne prend de la hauteur qu'une fois prêt, pour ne
+   pas laisser un grand vide pendant le chargement. */
+#cal-15min{width:100%}
+#cal-15min.pret{min-height:620px}
+#cal-15min iframe{display:block;width:100%;border:0}
+.agenda .autrement{
+  padding:14px 22px;border-top:1px solid var(--line-2);
+  font-size:14px;color:var(--muted);text-align:center;
+}
+.agenda .autrement a{color:var(--ink);font-family:var(--mono);text-decoration:none;font-weight:600}
+.agenda .autrement a:hover{text-decoration:underline}
 .agenda .secours{padding:32px 26px;text-align:center}
 .agenda .secours p{font-size:14.5px;color:var(--muted);line-height:1.65;max-width:34ch;margin:0 auto 20px}
 .agenda .secours .ligne{

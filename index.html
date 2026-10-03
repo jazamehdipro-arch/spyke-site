@@ -330,17 +330,22 @@
         <div class="h">
           <i></i><b>Choisir un créneau</b><span class="gratuit">15 min · Gratuit</span>
         </div>
-        <!-- L'outil de prise de rendez-vous se loge ici. Tant qu'il n'est pas
-             branché, la section ne laisse pas un trou : elle donne le numéro et
-             l'adresse, pour qu'un prospect ne reparte jamais sans moyen de
-             joindre quelqu'un. -->
+        <!-- Le calendrier Cal.com vient se loger dans #cal-15min. Le bloc de
+             secours reste affiché tant que le calendrier n'a pas répondu : si
+             le script est bloqué ou le réseau coupé, un prospect ne repart
+             jamais sans moyen de joindre quelqu'un. -->
         <div id="reservation-embed">
-          <div class="secours">
-            <p>Appelez directement, ou écrivez à l’adresse ci-dessous.</p>
+          <div class="secours" id="reservation-secours">
+            <p>Le calendrier s’ouvre dans un instant. S’il ne s’affiche pas, appelez directement ou écrivez à l’adresse ci-dessous.</p>
             <a class="ligne" href="tel:+33666884237">06 66 88 42 37</a>
             <a class="mail" href="mailto:contact@spykeapp.fr?subject=Demande%20d'échange%20de%2015%20minutes">contact@spykeapp.fr</a>
           </div>
+          <div id="cal-15min"></div>
         </div>
+        <p class="autrement">
+          Vous préférez le téléphone ?
+          <a href="tel:+33666884237">06 66 88 42 37</a>
+        </p>
       </div>
     </div>
   </section>
@@ -373,6 +378,66 @@
 
 <script>
   document.getElementById('an').textContent = new Date().getFullYear();
+</script>
+
+<!-- Calendrier de prise de rendez-vous (Cal.com). Le chargeur officiel pose le
+     script d'embarquement, puis on demande un calendrier intégré dans
+     #cal-15min. Le bloc de secours ne disparaît qu'une fois le calendrier
+     réellement prêt. -->
+<script>
+(function (C, A, L) {
+  let p = function (a, ar) { a.q.push(ar); };
+  let d = C.document;
+  C.Cal = C.Cal || function () {
+    let cal = C.Cal; let ar = arguments;
+    if (!cal.loaded) {
+      cal.ns = {}; cal.q = cal.q || [];
+      d.head.appendChild(d.createElement("script")).src = A;
+      cal.loaded = true;
+    }
+    if (ar[0] === L) {
+      const api = function () { p(api, arguments); };
+      const namespace = ar[1];
+      api.q = api.q || [];
+      if (typeof namespace === "string") {
+        cal.ns[namespace] = cal.ns[namespace] || api;
+        p(cal.ns[namespace], ar);
+        p(cal, ["initNamespace", namespace]);
+      } else { p(cal, ar); }
+      return;
+    }
+    p(cal, ar);
+  };
+})(window, "https://app.cal.com/embed/embed.js", "init");
+
+Cal("init", "quinze", { origin: "https://app.cal.com" });
+
+Cal.ns.quinze("inline", {
+  elementOrSelector: "#cal-15min",
+  calLink: "spykeconseil/15min",
+  config: { layout: "month_view" }
+});
+
+Cal.ns.quinze("ui", {
+  theme: "light",
+  layout: "month_view",
+  hideEventTypeDetails: false,
+  cssVarsPerTheme: {
+    light: { "cal-brand": "#111317" }
+  }
+});
+
+/* Le calendrier a répondu : on retire le bloc de secours et on laisse la
+   place au cadre. Tant que cet évènement n'arrive pas, le visiteur garde le
+   numéro sous les yeux. */
+Cal.ns.quinze("on", {
+  action: "linkReady",
+  callback: function () {
+    var sec = document.getElementById('reservation-secours');
+    if (sec) { sec.hidden = true; }
+    document.getElementById('cal-15min').classList.add('pret');
+  }
+});
 </script>
 </body>
 </html>
