@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Données personnelles · Spyke</title>
+<title>Politique de confidentialité · Spyke</title>
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,51 +14,77 @@
   .doc h1{font-family:var(--disp);font-size:34px;font-weight:700;color:var(--ink);letter-spacing:-.03em}
   .doc h2{font-size:18px;margin:34px 0 10px;max-width:none}
   .doc p{font-size:15.5px;line-height:1.7;margin-bottom:10px}
-  .doc .todo{background:var(--yellow-tint);border:1px solid #F0DFA0;border-radius:var(--r-s);padding:3px 8px;font-weight:600;color:var(--yellow-ink)}
+  .doc ul{margin:10px 0 10px 20px}
+  .doc li{font-size:15.5px;line-height:1.7;margin-bottom:5px}
+  .doc a{color:var(--yellow-ink)}
+  footer{padding:28px 0 24px}
 </style>
 </head>
 <body>
 <header><div class="wrap"><a class="logo" href="/"><b>SPYKE</b><i></i><span>Automatisation IA</span></a></div></header>
 <main class="doc">
-  <h1>Données personnelles</h1>
+  <h1>Politique de confidentialité</h1>
 
-  <h2>Ce que nous collectons</h2>
+  <h2>Responsable</h2>
+  <p>
+    JAZA Mehdi, <a href="mailto:contact@spykeapp.fr">contact@spykeapp.fr</a>
+  </p>
+
+  <h2>Données collectées</h2>
   <p>
     Ce site ne dépose aucun cookie publicitaire et ne mesure pas votre audience.
     Les seules données que nous recevons sont celles que vous nous transmettez
-    volontairement : lorsque vous réservez un échange, lorsque vous nous appelez
-    ou lorsque vous nous écrivez.
+    volontairement :
+  </p>
+  <ul>
+    <li>Vos coordonnées lorsque vous réservez un échange, appelez ou écrivez.</li>
+    <li>Ce que vous nous dites de votre entreprise pendant cet échange.</li>
+  </ul>
+
+  <h2>Utilisation</h2>
+  <p>
+    Vous recontacter et préparer l’échange que vous avez demandé. Rien d’autre.
+    Nous ne vendons jamais vos données.
   </p>
 
-  <h2>Pourquoi</h2>
+  <h2>Partage</h2>
   <p>
-    Pour vous recontacter et préparer l'échange que vous avez demandé. Rien d'autre.
-    Vos coordonnées ne sont ni vendues, ni transmises à des tiers à des fins
-    commerciales.
+    Vos données sont partagées uniquement avec nos prestataires techniques :
+  </p>
+  <ul>
+    <li>Supabase (base de données, Europe)</li>
+    <li>Vercel (hébergement)</li>
+  </ul>
+
+  <h2>Conservation</h2>
+  <p>
+    Trois ans après notre dernier échange, sauf obligation comptable ou
+    contractuelle contraire. Au-delà, les données sont effacées.
   </p>
 
-  <h2>Combien de temps</h2>
+  <h2>Sécurité</h2>
   <p>
-    Trois ans après notre dernier échange, sauf obligation comptable ou contractuelle
-    contraire. Au-delà, les données sont effacées.
-  </p>
-
-  <h2>Vos droits</h2>
-  <p>
-    Vous pouvez demander à tout moment l'accès à vos données, leur correction ou leur
-    effacement, en écrivant à <span class="todo">contact@spykeconseil.fr</span>. Nous
-    répondons sous un mois. Vous pouvez également saisir la CNIL (cnil.fr).
+    Données chiffrées et hébergées en Europe.
   </p>
 
   <h2>Prospection commerciale</h2>
   <p>
-    Nous contactons des entreprises par téléphone dans le cadre d'une prospection
-    professionnelle. Les coordonnées utilisées proviennent de sources professionnelles
-    publiques : annuaires d'entreprises, fiches d'établissement en ligne, sites
-    professionnels. Pour ne plus être contacté, il suffit de nous le dire, par
-    téléphone ou à l'adresse ci-dessus. La demande est appliquée immédiatement.
+    Nous contactons des entreprises par téléphone dans le cadre d’une
+    prospection professionnelle. Les coordonnées utilisées proviennent de sources
+    professionnelles publiques : annuaires d’entreprises, fiches
+    d’établissement en ligne, sites professionnels. Pour ne plus être
+    contacté, il suffit de nous le dire, par téléphone ou à l’adresse
+    ci-dessous. La demande est appliquée immédiatement.
+  </p>
+
+  <h2>Vos droits</h2>
+  <p>
+    Vous pouvez accéder à vos données, les corriger ou les supprimer à tout
+    moment en écrivant à <a href="mailto:contact@spykeapp.fr">contact@spykeapp.fr</a>.
+    Nous répondons sous un mois. Vous pouvez également saisir la CNIL (cnil.fr).
   </p>
 </main>
-<footer><div class="wrap"><div class="bas"><a href="/">Retour à l'accueil</a><span>© 2026 Spyke</span></div></div></footer>
+<footer><div class="wrap"><div class="bas"><a href="/">Retour à l’accueil</a><span>© <span id="an">2026</span> Spyke</span></div></div></footer>
+<script>document.getElementById('an').textContent=new Date().getFullYear();</script>
 </body>
 </html>

@@ -7,10 +7,11 @@ Il s'ouvre en double-cliquant sur `index.html`.
 
 1. **Le téléphone et l'adresse e-mail**, dans `index.html` (section « Réserver »
    et pied de page) : chercher `00 00 00 00 00` et `contact@spykeconseil.fr`.
-2. **Les mentions légales**, dans `mentions-legales.html` : raison sociale,
-   SIRET, adresse, directeur de la publication. Les champs à compléter sont
-   surlignés en jaune sur la page. Ils sont obligatoires pour un site
-   professionnel français.
+2. **Rien d’autre.** Les mentions légales et la politique de confidentialité
+   reprennent les informations publiées sur spykeapp.fr (JAZA Mehdi,
+   auto-entrepreneur, SIRET 929 238 566 00020). La politique de confidentialité
+   a été réécrite pour ce site : il n’y a ici ni compte utilisateur, ni
+   paiement, ni accès Gmail, donc rien de tout cela n’est mentionné.
 3. **La prise de rendez-vous** : voir ci-dessous.
 
 ## La prise de rendez-vous
