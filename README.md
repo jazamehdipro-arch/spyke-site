@@ -3,16 +3,19 @@
 Site statique : trois fichiers HTML, une feuille de style, rien à compiler.
 Il s'ouvre en double-cliquant sur `index.html`.
 
-## Avant la mise en ligne : à remplir
+## Avant la mise en ligne
 
-1. **Le téléphone et l'adresse e-mail**, dans `index.html` (section « Réserver »
-   et pied de page) : chercher `00 00 00 00 00` et `contact@spykeconseil.fr`.
-2. **Rien d’autre.** Les mentions légales et la politique de confidentialité
-   reprennent les informations publiées sur spykeapp.fr (JAZA Mehdi,
-   auto-entrepreneur, SIRET 929 238 566 00020). La politique de confidentialité
-   a été réécrite pour ce site : il n’y a ici ni compte utilisateur, ni
-   paiement, ni accès Gmail, donc rien de tout cela n’est mentionné.
-3. **La prise de rendez-vous** : voir ci-dessous.
+Le contenu est complet. Le téléphone (06 66 88 42 37) et l'adresse e-mail
+(contact@spykeapp.fr) sont les vrais, à changer seulement si une ligne ou une
+boîte est créée sur le nouveau domaine.
+
+Les mentions légales et la politique de confidentialité reprennent les
+informations publiées sur spykeapp.fr (JAZA Mehdi, auto-entrepreneur,
+SIRET 929 238 566 00020). La politique de confidentialité a été réécrite pour ce
+site : il n'y a ici ni compte utilisateur, ni paiement, ni accès Gmail, donc rien
+de tout cela n'y figure.
+
+Reste la prise de rendez-vous, décrite ci-dessous.
 
 ## La prise de rendez-vous
 
